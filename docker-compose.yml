@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    container_name: movies-api
+    command: sh -c "python app.py"
+    volumes:
+      - .:/app
+    ports:
+      - "5001:5001"
+    expose:
+      - 5001
