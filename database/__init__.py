@@ -1,12 +1,21 @@
-import csv
 import re
+import csv
 from sqlalchemy import create_engine
+from sqlalchemy.pool import StaticPool
 from sqlalchemy.orm import sessionmaker
 
 import config.settings as settings
 from database.models import Movie, Producer, Studio, Base
 
-engine = create_engine(settings.DB_URI)
+if settings.DEVELOPMENT:
+    engine = create_engine(
+        "sqlite:///:memory:",
+        connect_args={'check_same_thread': False},
+        poolclass=StaticPool
+    )
+else:
+    engine = create_engine(settings.DB_URI)
+
 Session = sessionmaker(bind=engine)
 
 
