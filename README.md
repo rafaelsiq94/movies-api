@@ -34,7 +34,7 @@ To run the project locally, follow these steps:
    python app.py
    ```
 
-   The API should now be accessible at `http://localhost:5001/movies`.
+   The API should now be accessible at `http://localhost:5001`.
 
 ### Docker
 
@@ -60,6 +60,8 @@ To run the project with Docker, make sure you have Docker installed on your syst
 Once the application is running, you can access the API endpoints using a tool like cURL, Postman, or your web browser.
 
 ### Endpoints
+
+Base URL `http://localhost:5001`.
 
 - **GET /movies**: Retrieve a list of all movies.
 - **GET /movies?projection=max-min-win-interval-for-producers**: Retrieve information about producers with the fastest and slowest consecutive wins.
